@@ -21,8 +21,8 @@ namespace webapi.Controllers
         [HttpGet]
         public async IEnumerable<Book> GetBooks()
         {
-            
-            return await _
+            var _bookManager = new BookManager(_logger, _configuration);
+            return await _bookManager
         }
     }
 }
