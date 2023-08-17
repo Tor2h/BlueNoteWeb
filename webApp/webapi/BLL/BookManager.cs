@@ -1,19 +1,25 @@
-﻿using webapi.Models;
+﻿using webapi.DAL;
+using webapi.DAL.Interface;
+using webapi.Models;
 
 namespace webapi.BLL
 {
     public class BookManager
     {
-        private readonly ILogger<BookManager> _logger;
+        private readonly ILogger _logger;
         private readonly IConfiguration _configuration;
-        public BookManager(ILogger<BookManager> logger, IConfiguration configuration)
+        private readonly IBookDB _bookDB;
+        public BookManager(ILogger logger, IConfiguration configuration)
         {
             this._logger = logger;
             this._configuration = configuration;
+            this._bookDB = new BookDB(_logger, _configuration);
         }
-        public List<Book> GetBooks()
+        public async Task<List<Book>> GetBooks()
         {
-            List<Book> result = 
+            List<Book> books = new List<Book>();
+            books = await _bookDB.GetBooks();
+            return books;
         }
     }
 }

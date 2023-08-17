@@ -7,22 +7,20 @@ namespace webapi.Controllers
     [ApiController]
     public class BookController
     {
-        private readonly ILogger<BookController> _logger;
+        private readonly ILogger _logger;
         private readonly IConfiguration _configuration;
-        private readonly BookManager _bookManager;
-
-        public BookController(ILogger<BookController> logger, IConfiguration configuration, BookManager bookManager)
+        public BookController(ILogger logger, IConfiguration configuration)
         {
             _logger = logger;
             _configuration = configuration;
-            _bookManager = bookManager;
         }
 
         [HttpGet]
-        public async IEnumerable<Book> GetBooks()
+        public async Task<IEnumerable<Book>> GetBooks()
         {
-            var _bookManager = new BookManager(_logger, _configuration);
-            return await _bookManager
+            BookManager _bookManager = new BookManager(_logger, _configuration);
+            List<Book> books = await _bookManager.GetBooks();
+            return books;
         }
     }
 }
