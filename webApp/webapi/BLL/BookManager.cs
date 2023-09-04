@@ -18,7 +18,7 @@ namespace webapi.BLL
         public async Task<List<Book>> GetBooks()
         {
             List<Book> books = new List<Book>();
-            books = await _bookDB.GetBooks();
+            //books = await _bookDB.GetBooks();
             return books;
         }
     }

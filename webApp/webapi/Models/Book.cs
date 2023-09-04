@@ -1,7 +1,11 @@
-﻿namespace webapi.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace webapi.Models
 {
     public class Book
     {
+        [Key]
+        public int ID { get; set; }
         public string? AaName { get; set; }
         public string? Author { get; set; }
         public string? Series { get; set; }
