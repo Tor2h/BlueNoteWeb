@@ -4,8 +4,8 @@ namespace webapi.Models
 {
     public class Genre
     {
-        [Key]
-        public int ID { get; set; }
+        public Guid ID { get; set; }
         public string? Name { get; set; }
+        public virtual List<BookGenre> BookGenres { get; set; } = new();
     }
 }

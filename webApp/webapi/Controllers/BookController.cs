@@ -5,22 +5,21 @@ using webapi.Models;
 namespace webapi.Controllers
 {
     [ApiController]
-    public class BookController
+    public class BookController : ControllerBase
     {
-        private readonly ILogger _logger;
         private readonly IConfiguration _configuration;
-        public BookController(ILogger logger, IConfiguration configuration)
+        private readonly BookManager _bookManager;
+        public BookController(IConfiguration configuration, BookManager bookManager)
         {
-            _logger = logger;
             _configuration = configuration;
+            _bookManager = bookManager;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Book>> GetBooks()
-        {
-            BookManager _bookManager = new BookManager(_logger, _configuration);
+        [Route("api/[Controller]")]
+        public async Task<ActionResult<List<Book>>> GetBooks() { 
             List<Book> books = await _bookManager.GetBooks();
-            return books;
+            return Ok(books);
         }
     }
 }

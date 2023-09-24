@@ -1,7 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Identity.Client;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using webapi.BLL;
 using webapi.DAL.Interface;
 using webapi.Models;
@@ -10,13 +12,26 @@ namespace webapi.DAL
 {
     public class BookDB : IBookDB
     {
-        private readonly ILogger _logger;
         private readonly IConfiguration _configuration;
-        public BookDB(ILogger logger, IConfiguration configuration)
+        public BookDB(IConfiguration configuration)
         {
-            this._logger = logger;
             this._configuration = configuration;
         }
         
+        public async Task<List<Book>> GetBooks()
+        {
+            List<Book> books = new();
+            using (var db = new DatabaseContext())
+            {
+                books = await db.Books
+                    .Include(b => b.BookGenres)
+                    .ThenInclude(bg => bg.Genre)
+                    .Include(b => b.BookTropes)
+                    .ThenInclude(bt => bt.Trope)
+                    .ToListAsync();
+            }
+            return books;
+        }
+
     }
 }
