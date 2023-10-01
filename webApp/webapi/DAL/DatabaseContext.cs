@@ -1,13 +1,21 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using webapi.Models;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Data.SqlClient;
 
 namespace webapi.DAL
 {
     public class DatabaseContext : DbContext
     {
+        IConfiguration _configuration;
+        public DatabaseContext(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("ConnectMsSqlString");
+            optionsBuilder.UseSqlServer(_configuration.GetConnectionString("ConnectMsSqlString"));
         }
 
         public DbSet<Book> Books { get; set; }

@@ -21,7 +21,7 @@ namespace webapi.DAL
         public async Task<List<Book>> GetBooks()
         {
             List<Book> books = new();
-            using (var db = new DatabaseContext())
+            using (var db = new DatabaseContext(_configuration))
             {
                 books = await db.Books
                     .Include(b => b.BookGenres)
