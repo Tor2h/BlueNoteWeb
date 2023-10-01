@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
 
 namespace webapi.Models
 {
@@ -12,8 +12,10 @@ namespace webapi.Models
         public Status Status { get; set; }
         public Score Score { get; set; }
         public string? Comment { get; set; }
-        public virtual List<BookTrope>? BookTropes { get; set; }
-        public virtual List<BookGenre>? BookGenres { get; set; }
+        [JsonIgnore]
+        public virtual List<BookTrope> BookTropes { get; set; } = new();
+        [JsonIgnore]
+        public virtual List<BookGenre> BookGenres { get; set; } = new();
     }
     public enum Status
     {

@@ -27,7 +27,7 @@ namespace webapi.DAL
                     .Include(b => b.BookGenres)
                     .ThenInclude(bg => bg.Genre)
                     .Include(b => b.BookTropes)
-                    .ThenInclude(bt => bt.Trope)
+                    .ThenInclude(b => b.Trope)
                     .ToListAsync();
             }
             return books;

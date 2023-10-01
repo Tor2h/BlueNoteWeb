@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace webapi.Models
 {
@@ -6,6 +7,5 @@ namespace webapi.Models
     {
         public Guid ID { get; set; }
         public string? Name { get; set; }
-        public virtual List<BookTrope> BookTropes { get; set; } = new();
     }
 }
