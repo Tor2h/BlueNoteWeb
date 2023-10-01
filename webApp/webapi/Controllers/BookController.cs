@@ -16,7 +16,7 @@ namespace webapi.Controllers
         }
 
         [HttpGet]
-        [Route("api/[Controller]")]
+        [Route("[Controller]")]
         public async Task<ActionResult<List<Book>>> GetBooks() { 
             var books = await _bookManager.GetBooks();
             return Ok(books);

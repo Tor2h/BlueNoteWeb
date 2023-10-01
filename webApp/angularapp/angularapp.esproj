@@ -11,6 +11,6 @@
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\angularapp</BuildOutputFolder>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="src\app\shared\models\" />
+    <Folder Include="src\app\shared\services\" />
   </ItemGroup>
 </Project>

@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./genres.component.css']
 })
 export class GenresComponent {
-
+ 
 }
