@@ -5,7 +5,7 @@ using webapi.Models;
 namespace webapi.Controllers
 {
     [Controller]
-    public class GenreController
+    public class GenreController : ControllerBase
     {
         private readonly IConfiguration _configuration;
         private readonly GenreManager _genreManager;
