@@ -12,12 +12,13 @@ namespace webapi.Controllers
         public BookController(IConfiguration configuration)
         {
             _configuration = configuration;
-            _bookManager = new BookManager(configuration);
+            _bookManager = new BookManager(_configuration);
         }
 
         [HttpGet]
-        [Route("[Controller]")]
-        public async Task<ActionResult<List<Book>>> GetBooks() { 
+        [Route("/books")]
+        public async Task<ActionResult<List<BookDTO>>> GetBooks() 
+        { 
             var books = await _bookManager.GetBooks();
             return Ok(books);
         }

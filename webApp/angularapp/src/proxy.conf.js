@@ -1,9 +1,10 @@
 const PROXY_CONFIG = [
   {
     context: [
-      "/Book",
+      "/books",
+      "/genres",
     ],
-    target: "https://localhost:7098",
+    target: "https://localhost:7136",
     secure: false
   }
 ]

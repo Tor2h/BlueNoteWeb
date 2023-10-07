@@ -1,22 +1,53 @@
-<table mat-table [dataSource]="allBooks"  class="mat-elevation-z8">
+<table mat-table [dataSource]="allBooks" class="mat-elevation-z8">
 
   <ng-container matColumnDef="author">
-    <th mat-header-cell * matHeaderCallDef> Author </th>
+    <th mat-header-cell *matHeaderCellDef> Author </th>
     <td mat-cell *matCellDef="let book"> {{book.author}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="aaName">
+    <th mat-header-cell *matHeaderCellDef> Title </th>
+    <td mat-cell *matCellDef="let book"> {{book.aaName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="series">
+    <th mat-header-cell *matHeaderCellDef> Series </th>
+    <td mat-cell *matCellDef="let book"> {{book.series}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="ownedOrWish">
+    <th mat-header-cell *matHeaderCellDef> Owned? </th>
+    <td mat-cell *matCellDef="let book"> {{book.ownedOrWish}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let book"> {{book.status}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="score">
+    <th mat-header-cell *matHeaderCellDef> Score </th>
+    <td mat-cell *matCellDef="let book"> {{book.score}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="comment">
+    <th mat-header-cell *matHeaderCellDef> Comment </th>
+    <td mat-cell *matCellDef="let book"> {{book.comment}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="tropes">
+    <th mat-header-cell *matHeaderCellDef> Tropes </th>
+    <td mat-cell *matCellDef="let book"> <span *ngFor="let trope of book.tropes">{{trope.name}}</span>  </td>
+  </ng-container>
+
+  <ng-container matColumnDef="genres">
+    <th mat-header-cell *matHeaderCellDef> Genres </th>
+    <td mat-cell *matCellDef="let book"> <span *ngFor="let genre of book.genres">{{genre.name}}</span>  </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
 </table>
 
 
-<!--<table mat-table  class="mat-elevation-z8">
 
-  <ng-container matColumnDef="author">
-    <th mat-header-cell * matHeaderCallDef> Author </th>
-    <td mat-cell *matCellDef="let book"> {{book.author}} </td>
-  </ng-container>
-
-
-</table>-->

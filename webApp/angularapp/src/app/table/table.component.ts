@@ -9,11 +9,14 @@ import { BooksService } from '../shared/services/books.service';
 })
 export class TableComponent implements OnInit{
   allBooks: Book[] = []
-  displayedColumns: string[] = ['Author']
+  displayedColumns: string[] = ['author', 'aaName', 'series', 'ownedOrWish', 'status', 'score', 'comment', 'tropes', 'genres']
   constructor(private booksService: BooksService) {
 
   }
   ngOnInit() {
-    this.booksService.getBooks().subscribe(b => this.allBooks = b)
+    this.booksService.getBooks().subscribe(b => {
+      this.allBooks = b
+      console.log(this.allBooks)
+    })
   }
 }
