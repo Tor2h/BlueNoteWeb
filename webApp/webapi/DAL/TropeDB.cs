@@ -28,7 +28,10 @@ namespace webapi.DAL
             using (var db = new DatabaseContext(_configuration))
             {
                 db.Tropes.Add(trope);
-                //HERE            }
+                //HERE
+                _ = await db.SaveChangesAsync();
+            }
+            return trope;
         }
     }
 }

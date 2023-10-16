@@ -10,6 +10,7 @@ export class CreateTropeDialogComponent {
   tropeName: string = ""
   constructor(private tropesService: TropesService) { }
   createTrope() {
-    this.tropesService.createTrope(this.tropeName)
+    console.log
+    this.tropesService.createTrope(this.tropeName).subscribe()
   }
 }

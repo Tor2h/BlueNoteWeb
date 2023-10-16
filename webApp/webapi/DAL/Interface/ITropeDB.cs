@@ -5,5 +5,7 @@ namespace webapi.DAL.Interface
     public interface ITropeDB
     {
         public Task<List<Trope>> GetTropes();
+        public Task<Trope> CreateTrope(string tropeName);
+
     }
 }
