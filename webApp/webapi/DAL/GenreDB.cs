@@ -20,5 +20,14 @@ namespace webapi.DAL
             }
             return genres;
         }
+        public async Task<Genre> CreateGenre(string genreName)
+        {
+            Genre genre = new Genre() { ID = Guid.NewGuid(), Name = genreName };
+            using (var db = new DatabaseContext(_configuration))
+            {
+                db.Genres.Add(genre);
+            }
+            return genre;
+        }
     }
 }

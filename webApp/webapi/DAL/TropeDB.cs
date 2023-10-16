@@ -24,7 +24,7 @@ namespace webapi.DAL
         }
         public async Task<Trope> CreateTrope(string tropeName)
         {
-            Trope trope = new Trope() { ID = Guid.NewGuid(), Name = tropeName };    
+            Trope trope = new Trope() { ID = Guid.NewGuid(), Name = tropeName };
             using (var db = new DatabaseContext(_configuration))
             {
                 db.Tropes.Add(trope);
