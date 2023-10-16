@@ -22,5 +22,13 @@ namespace webapi.Controllers
             var genres = await _genreManager.GetGenres();
             return genres;
         }
+
+        [HttpPost]
+        [Route("/genres")]
+        public async Task<ActionResult<Genre>> CreateGenre(string genreName)
+        {
+            var genre = await _genreManager.CreateGenre(genreName);
+            return Ok(genre);
+        }
     }
 }

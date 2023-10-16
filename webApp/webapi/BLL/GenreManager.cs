@@ -18,5 +18,10 @@ namespace webapi.BLL
             List<Genre> genres = await _genreDB.GetGenres();
             return genres;
         }
+        public async Task<Genre> CreateGenre(string genreName)
+        {
+            Genre genre = await _genreDB.CreateGenre(genreName);
+            return genre;
+        }
     }
 }
