@@ -23,7 +23,7 @@ namespace webapi.Controllers
         }
         [HttpPost]
         [Route("/tropes")]
-        public async Task<ActionResult<Trope>> CreateTrope([FromBody]string tropeName) 
+        public async Task<ActionResult<Trope>> CreateTrope(string tropeName) 
         {
             var trope = await _tropeManager.CreateTrope(tropeName);
             return Ok(trope);

@@ -1,4 +1,4 @@
-export interface Trope {
+export type Trope = {
   id: string
   name: string
 }

@@ -9,21 +9,27 @@ import { CreateTropeDialogComponent } from './create-trope-dialog/create-trope-d
   templateUrl: './tropes.component.html',
   styleUrls: ['./tropes.component.css']
 })
-export class TropesComponent implements OnInit{
+export class TropesComponent implements OnInit {
   allTropes: Trope[] = []
   displayedColumns: string[] = ['name']
+  trope: Trope
   constructor(private tropesService: TropesService, public dialog: MatDialog) {
 
   }
+
   ngOnInit() {
     this.tropesService.getTropes().subscribe(t => {
       this.allTropes = t
     })
   }
-  createTrope() {
-    const dialogRef = this.dialog.open(CreateTropeDialogComponent)
-    dialogRef.afterClosed().subscribe(result => {
 
+  createTrope() {
+    const dialogRef = this.dialog.open(CreateTropeDialogComponent, {
+      data: { name: "", id: "" }
+    })
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result)
+      this.tropesService.createTrope(result.name)
     })
   }
 }

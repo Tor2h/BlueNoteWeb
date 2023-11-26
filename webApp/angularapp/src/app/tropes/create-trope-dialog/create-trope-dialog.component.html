@@ -2,10 +2,10 @@
 <mat-dialog-content class="mat-typography">
   <mat-form-field appearance="outline" styleClass="mx-3">
     <mat-label>Trope name</mat-label>
-    <input matInput value="">
+    <input matInput [(ngModel)]="trope.name"/>
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true" (click)="createTrope()" cdkFocusInitial>Create</button>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="trope.name" cdkFocusInitial>Create</button>
 </mat-dialog-actions>

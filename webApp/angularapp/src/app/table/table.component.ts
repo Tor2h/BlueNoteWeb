@@ -16,7 +16,6 @@ export class TableComponent implements OnInit{
   ngOnInit() {
     this.booksService.getBooks().subscribe(b => {
       this.allBooks = b
-      console.log(this.allBooks)
     })
   }
 }
