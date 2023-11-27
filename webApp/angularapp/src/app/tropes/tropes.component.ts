@@ -12,7 +12,7 @@ import { CreateTropeDialogComponent } from './create-trope-dialog/create-trope-d
 export class TropesComponent implements OnInit {
   allTropes: Trope[] = []
   displayedColumns: string[] = ['name']
-  trope: Trope
+  trope: Trope | undefined
   constructor(private tropesService: TropesService, public dialog: MatDialog) {
 
   }
@@ -29,6 +29,7 @@ export class TropesComponent implements OnInit {
     })
     dialogRef.afterClosed().subscribe(result => {
       console.log(result)
+
       this.tropesService.createTrope(result.name)
     })
   }
