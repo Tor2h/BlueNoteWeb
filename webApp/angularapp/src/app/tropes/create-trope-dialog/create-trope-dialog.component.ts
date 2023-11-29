@@ -18,19 +18,10 @@ export class CreateTropeDialogComponent {
   formGroup = new FormGroup({
     tropeName: new FormControl<string>('', [
       Validators.required
-
     ])
   })
 
   onNoClick(): void {
     this.dialogRef.close()
   }
-
-  //createTrope(tropeNameInput: string) {
-  //  console.log("input::")
-  //  console.log(tropeNameInput)
-  //  console.log("attribute::")
-  //  console.log(this.tropeName)
-  //  this.tropesService.createTrope(this.tropeName).subscribe()
-  //}
 }
