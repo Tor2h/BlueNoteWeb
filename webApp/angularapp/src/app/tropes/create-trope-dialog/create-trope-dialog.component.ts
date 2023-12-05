@@ -1,7 +1,5 @@
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Trope } from '../../shared/models/Trope';
 import { TropesService } from '../../shared/services/tropes.service';
 
 @Component({
@@ -10,18 +8,18 @@ import { TropesService } from '../../shared/services/tropes.service';
   styleUrls: ['./create-trope-dialog.component.css']
 })
 export class CreateTropeDialogComponent {
+  constructor(private tropeService: TropesService) {}
 
-  constructor(
-    public dialogRef: MatDialogRef<CreateTropeDialogComponent>
-  ) {}
-
-  formGroup = new FormGroup({
+  tropeForm = new FormGroup({
     tropeName: new FormControl<string>('', [
       Validators.required
     ])
   })
 
-  onNoClick(): void {
-    this.dialogRef.close()
+  onSubmit() {
+    if (this.tropeForm.value.tropeName) {
+      this.tropeService.createTrope(this.tropeForm.value.tropeName).subscribe()
+    }
   }
+
 }

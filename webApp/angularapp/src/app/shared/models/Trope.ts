@@ -1,4 +1,4 @@
-export type Trope = {
-  id: string
-  name: string
+export interface Trope {
+  id: string | undefined
+  name: string | undefined
 }
