@@ -4,7 +4,7 @@ using webapi.Models;
 
 namespace webapi.Controllers
 {
-    [Controller]
+    [ApiController]
     public class TropeController : ControllerBase
     {
         private readonly IConfiguration _configuration;
@@ -23,10 +23,10 @@ namespace webapi.Controllers
         }
         [HttpPost]
         [Route("/tropes")]
-        public async Task<ActionResult<Trope>> CreateTrope(string tropeName) 
+        public async Task<ActionResult<Trope>> CreateTrope(Trope trope) 
         {
-            var trope = await _tropeManager.CreateTrope(tropeName);
-            return Ok(trope);
+            var result = await _tropeManager.CreateTrope(trope);
+            return Ok(result);
         }
     }
 }

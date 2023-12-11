@@ -1,4 +1,4 @@
-export interface Trope {
+export class Trope {
   id: string | undefined
-  name: string | undefined
+  name!: string
 }

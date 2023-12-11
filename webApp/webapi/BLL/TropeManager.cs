@@ -19,9 +19,9 @@ namespace webapi.BLL
             List<Trope> tropes = await _tropeDB.GetTropes();
             return tropes;
         }
-        public async Task<Trope> CreateTrope(string tropeName)
+        public async Task<Trope> CreateTrope(Trope trope)
         {
-            Trope trope = await _tropeDB.CreateTrope(tropeName);
+            trope = await _tropeDB.CreateTrope(trope);
             return trope;
             
         }

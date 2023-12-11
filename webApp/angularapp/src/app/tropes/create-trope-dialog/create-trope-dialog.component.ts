@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core'
+import { FormControl, FormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { TropesService } from '../../shared/services/tropes.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class CreateTropeDialogComponent {
   constructor(private tropeService: TropesService) {}
 
   tropeForm = new FormGroup({
-    tropeName: new FormControl<string>('', [
+    tropeName: new UntypedFormControl(null, [
       Validators.required
     ])
   })

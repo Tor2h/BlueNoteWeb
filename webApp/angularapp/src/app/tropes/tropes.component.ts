@@ -27,10 +27,5 @@ export class TropesComponent implements OnInit {
     const dialogRef = this.dialog.open(CreateTropeDialogComponent, {
       data: { name: "", id: "" }
     })
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
-
-      this.tropesService.createTrope(result.name)
-    })
   }
 }

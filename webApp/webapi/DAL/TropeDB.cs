@@ -22,12 +22,13 @@ namespace webapi.DAL
             }
             return tropes;
         }
-        public async Task<Trope> CreateTrope(string tropeName)
+        public async Task<Trope> CreateTrope(Trope trope)
         {
-            Trope trope = new Trope() { ID = Guid.NewGuid(), Name = tropeName };
+            trope.ID = Guid.NewGuid();
             using (var db = new DatabaseContext(_configuration))
             {
                 db.Tropes.Add(trope);
+                _ = await db.SaveChangesAsync();
             }
             return trope;
         }
