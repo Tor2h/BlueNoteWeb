@@ -18,6 +18,10 @@ export class TropesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getTropes()
+  }
+
+  getTropes() {
     this.tropesService.getTropes().subscribe(t => {
       this.allTropes = t
     })
@@ -26,6 +30,14 @@ export class TropesComponent implements OnInit {
   createTrope() {
     const dialogRef = this.dialog.open(CreateTropeDialogComponent, {
       data: { name: "", id: "" }
+    }).afterClosed().subscribe(d => {
+      this.getTropes()
+    })
+  }
+
+  deleteTrope(id: string) {
+    this.tropesService.deleteTrope(id).subscribe(t => {
+      this.getTropes()
     })
   }
 }

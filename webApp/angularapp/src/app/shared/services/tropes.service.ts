@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Trope } from "../models/Trope";
@@ -21,4 +21,10 @@ export class TropesService {
     return this.http.post<Trope>("/tropes", trope, {}).pipe()
   }
 
+  public deleteTrope(id: string): Observable<boolean> {
+    const options = id ? {
+      params: new HttpParams().set('id', id)
+    } : {}
+    return this.http.delete<boolean>("tropes", options)
+  }
 }

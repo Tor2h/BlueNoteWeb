@@ -26,5 +26,10 @@ namespace webapi.BLL
             
         }
 
+        public async Task<bool> DeleteTrope(Guid id)
+        {
+            bool tropeDeleted = await _tropeDB.DeleteTrope(id);
+            return tropeDeleted;
+        }
     }
 }

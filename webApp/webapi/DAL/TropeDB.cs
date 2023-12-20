@@ -32,5 +32,20 @@ namespace webapi.DAL
             }
             return trope;
         }
+        public async Task<bool> DeleteTrope(Guid id) {
+            bool result = false;
+            using (var db = new DatabaseContext(_configuration))
+            {
+                var trope = await db.Tropes.Where(t => t.ID == id).FirstOrDefaultAsync();
+                if (trope != null)
+                {
+                    db.Tropes.Remove(trope);
+                    result = true;
+                }
+                _ = await db.SaveChangesAsync();
+            }
+            return result;
+        }
+
     }
 }

@@ -23,9 +23,16 @@ namespace webapi.Controllers
         }
         [HttpPost]
         [Route("/tropes")]
-        public async Task<ActionResult<Trope>> CreateTrope(Trope trope) 
+        public async Task<ActionResult<Trope>> CreateTrope(Trope trope)
         {
             var result = await _tropeManager.CreateTrope(trope);
+            return Ok(result);
+        }
+        [HttpDelete]
+        [Route("/tropes")]
+        public async Task<ActionResult<bool>> DeleteTrope(Guid id)
+        {
+            var result = await _tropeManager.DeleteTrope(id);
             return Ok(result);
         }
     }
