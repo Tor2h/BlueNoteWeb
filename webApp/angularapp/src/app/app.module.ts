@@ -18,6 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
+import { CreateGenreDialogComponent } from './genres/create-genre-dialog/create-genre-dialog.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MatSelectModule } from '@angular/material/select';
     TableComponent,
     TropesComponent,
     GenresComponent,
-    CreateTropeDialogComponent
+    CreateTropeDialogComponent,
+    CreateGenreDialogComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, BrowserAnimationsModule, MatSidenavModule,
