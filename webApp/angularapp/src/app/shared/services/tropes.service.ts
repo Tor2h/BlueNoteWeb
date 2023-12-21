@@ -14,8 +14,6 @@ export class TropesService {
     return this.http.get<Trope[]>("/tropes")
   }
   public createTrope(tropeName: string): Observable<Trope> {
-    console.log(tropeName)
-    
     let trope: Trope = new Trope
     trope.name = tropeName
     return this.http.post<Trope>("/tropes", trope, {}).pipe()

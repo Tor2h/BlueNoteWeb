@@ -1,4 +1,4 @@
-export interface Genre {
-  id: string
-  name:string
+export class Genre {
+  id: string | undefined
+  name!:string
 }

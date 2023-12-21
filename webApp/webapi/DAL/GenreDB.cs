@@ -20,14 +20,30 @@ namespace webapi.DAL
             }
             return genres;
         }
-        public async Task<Genre> CreateGenre(string genreName)
+        public async Task<Genre> CreateGenre(Genre genre)
         {
-            Genre genre = new Genre() { ID = Guid.NewGuid(), Name = genreName };
+            genre.ID = Guid.NewGuid();
             using (var db = new DatabaseContext(_configuration))
             {
                 db.Genres.Add(genre);
+                _ = await db.SaveChangesAsync();
             }
             return genre;
+        }
+        public async Task<bool> DeleteGenre(Guid id)
+        {
+            bool result = false;
+            using (var db = new DatabaseContext(_configuration))
+            {
+                var genre = await db.Genres.Where(g => g.ID == id).FirstOrDefaultAsync();
+                if (genre != null)
+                {
+                    db.Genres.Remove(genre);
+                    result = true;
+                }
+                _ = await db.SaveChangesAsync();
+            }
+            return result;
         }
     }
 }

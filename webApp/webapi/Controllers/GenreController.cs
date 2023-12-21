@@ -4,7 +4,7 @@ using webapi.Models;
 
 namespace webapi.Controllers
 {
-    [Controller]
+    [ApiController]
     public class GenreController : ControllerBase
     {
         private readonly IConfiguration _configuration;
@@ -20,15 +20,23 @@ namespace webapi.Controllers
         public async Task<ActionResult<List<Genre>>> GetGenres()
         {
             var genres = await _genreManager.GetGenres();
-            return genres;
+            return Ok(genres);
         }
 
         [HttpPost]
         [Route("/genres")]
-        public async Task<ActionResult<Genre>> CreateGenre(string genreName)
+        public async Task<ActionResult<Genre>> CreateGenre(Genre genre)
         {
-            var genre = await _genreManager.CreateGenre(genreName);
-            return Ok(genre);
+            var result = await _genreManager.CreateGenre(genre);
+            return Ok(result);
+        }
+
+        [HttpDelete]
+        [Route("/genres")]
+        public async Task<ActionResult<bool>> DeleteGenre(Guid id)
+        {
+            var result = await _genreManager.DeleteGenre(id);
+            return Ok(result);
         }
     }
 }

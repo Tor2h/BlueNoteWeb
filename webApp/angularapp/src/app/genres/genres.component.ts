@@ -33,6 +33,8 @@ export class GenresComponent implements OnInit{
     })
   }
   deleteGenre(id: string) {
-
+    this.genresService.deleteGenre(id).subscribe(g => {
+      this.getGenres()
+    })
   }
 }
