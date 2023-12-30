@@ -4,11 +4,12 @@
 <mat-dialog-content class="mat-typography">
 
   <form [formGroup]="tropeForm" (ngSubmit)="onSubmit()">
-
-    <mat-form-field appearance="outline" styleClass="mx-3 my-3">
-      <mat-label>Trope name</mat-label>
-      <input matInput type="text" formControlName="tropeName">
-    </mat-form-field>
+    <div class="mt-1">
+      <mat-form-field appearance="outline" styleClass="mx-3 my-3">
+        <mat-label>Trope name</mat-label>
+        <input matInput type="text" formControlName="tropeName">
+      </mat-form-field>
+    </div>
 
     <mat-dialog-actions align="end">
       <button mat-button mat-dialog-close>Cancel</button>

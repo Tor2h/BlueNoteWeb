@@ -1,0 +1,50 @@
+
+<h2 mat-dialog-title>Create a new book</h2>
+
+<mat-dialog-content class="mat-typography">
+
+  <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <div class="row mt-1">
+      <mat-form-field appearance="outline" styleClass="mx-3 my-3">
+        <mat-label>aa name</mat-label>
+        <input matInput type="text" formControlName="aaName">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline" styleClass="mx-3 my-3">
+        <mat-label>Author</mat-label>
+        <input matInput type="text" formControlName="author">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline" styleClass="mx-3 my-3">
+        <mat-label>Series</mat-label>
+        <input matInput type="text" formControlName="series">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <!--<mat-form-field appearance="outline" styleClass="mx-3 my-3">-->
+        <!--<mat-label>Owned</mat-label>-->
+        <mat-checkbox formControlName="ownedOrWish">Owned</mat-checkbox>
+      <!--</mat-form-field>-->
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline" styleClass="mx-3 my-3">
+        <mat-label>aa name</mat-label>
+        <input matInput type="text" formControlName="aaName">
+      </mat-form-field>
+    </div>
+
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button type="submit" [disabled]="!bookForm.valid" [mat-dialog-close]="true" cdkFocusInitial>Create</button>
+    </mat-dialog-actions>
+
+  </form>
+
+</mat-dialog-content>
+

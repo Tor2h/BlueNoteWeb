@@ -19,6 +19,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { CreateGenreDialogComponent } from './genres/create-genre-dialog/create-genre-dialog.component';
+import { CreateBookComponent } from './create-book/create-book.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { CreateGenreDialogComponent } from './genres/create-genre-dialog/create-
     TropesComponent,
     GenresComponent,
     CreateTropeDialogComponent,
-    CreateGenreDialogComponent
+    CreateGenreDialogComponent,
+    CreateBookComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, BrowserAnimationsModule, MatSidenavModule,
@@ -41,6 +44,7 @@ import { CreateGenreDialogComponent } from './genres/create-genre-dialog/create-
     FormsModule,
     MatSelectModule,
     ReactiveFormsModule,
+    MatCheckboxModule,
 
   ],
   providers: [],
