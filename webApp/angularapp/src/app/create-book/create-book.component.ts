@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, UntypedFormControl, Validators } from '@angular/forms';
+import { Status, StatusDisplay, Score, ScoreDisplay } from '../shared/models/Book';
 import { BooksService } from '../shared/services/books.service';
 
 @Component({
@@ -21,6 +22,21 @@ export class CreateBookComponent {
     tropes: new UntypedFormControl(null),
     genres: new UntypedFormControl(null)
   })
+
+  statusOption: StatusDisplay[] = [
+    {key: Status.NotStarted, value: 'Not started'},
+    {key: Status.CurrentlyReading, value: 'Currently reading'},
+    {key: Status.Read, value: 'Read'},
+    {key: Status.WantToReadSoon, value: 'Want to read soon'}
+  ]
+
+  scoreOption: ScoreDisplay[] = [
+    { key: Score.One, value: '⭐' },
+    { key: Score.Two, value: '⭐⭐' },
+    { key: Score.Three, value: '⭐⭐⭐' },
+    { key: Score.Four, value: '⭐⭐⭐⭐' },
+    { key: Score.Five, value: '⭐⭐⭐⭐⭐' }
+  ]
 
   onSubmit() {
     //this.bookService

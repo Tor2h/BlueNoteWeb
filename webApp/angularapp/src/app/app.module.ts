@@ -31,7 +31,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     CreateTropeDialogComponent,
     CreateGenreDialogComponent,
     CreateBookComponent
-  ],
+   ],
   imports: [
     BrowserModule, HttpClientModule, BrowserAnimationsModule, MatSidenavModule,
     MatTabsModule,

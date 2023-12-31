@@ -25,17 +25,40 @@
       </mat-form-field>
     </div>
 
-    <div class="row">
+    <div class="row mb-3">
       <!--<mat-form-field appearance="outline" styleClass="mx-3 my-3">-->
-        <!--<mat-label>Owned</mat-label>-->
-        <mat-checkbox formControlName="ownedOrWish">Owned</mat-checkbox>
+      <!--<mat-label>Owned</mat-label>-->
+      <mat-checkbox formControlName="ownedOrWish">Owned</mat-checkbox>
       <!--</mat-form-field>-->
     </div>
 
     <div class="row">
       <mat-form-field appearance="outline" styleClass="mx-3 my-3">
-        <mat-label>aa name</mat-label>
-        <input matInput type="text" formControlName="aaName">
+        <mat-label>Status</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let status of statusOption" [value]="status.key">
+            {{status.value}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline" styleClass="mx-3 my-3">
+        <mat-label>Score</mat-label>
+        <mat-select>
+          <mat-option>Not read yet</mat-option>
+          <mat-option *ngFor="let score of scoreOption" [value]="score.key">
+            {{score.value}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline" styleClass="mx-3 my-3">
+        <mat-label>Comment</mat-label>
+        <textarea matInput formControlName="comment"></textarea>
       </mat-form-field>
     </div>
 

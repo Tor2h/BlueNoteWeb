@@ -28,3 +28,13 @@ export enum Score {
   Four,
   Five
 }
+
+export interface StatusDisplay {
+  key: Status
+  value: string
+}
+
+export interface ScoreDisplay {
+  key: Score
+  value: string
+}
