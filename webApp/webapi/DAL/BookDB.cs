@@ -32,6 +32,31 @@ namespace webapi.DAL
             }
             return books;
         }
+        public async Task<bool> CreateBook(Book book)
+        {
+            int result = 0;
+            using (var db = new DatabaseContext(_configuration))
+            {
+                db.Books.Add(book);
+                foreach (BookGenre bookGenre in book.BookGenres)
+                {
+                    db.BookGenres.Add(bookGenre);
+                }
+                foreach (BookTrope bookTrope in book.BookTropes)
+                {
+                    db.BookTropes.Add(bookTrope);
+                }
+                result = await db.SaveChangesAsync();
+            }
+            if (result > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
 }

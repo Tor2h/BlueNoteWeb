@@ -33,9 +33,9 @@
     </div>
 
     <div class="row">
-      <mat-form-field appearance="outline" styleClass="mx-3 my-3">
+      <mat-form-field  appearance="outline" styleClass="mx-3 my-3">
         <mat-label>Status</mat-label>
-        <mat-select>
+        <mat-select formControlName="status">
           <mat-option *ngFor="let status of statusOption" [value]="status.key">
             {{status.value}}
           </mat-option>
@@ -46,10 +46,32 @@
     <div class="row">
       <mat-form-field appearance="outline" styleClass="mx-3 my-3">
         <mat-label>Score</mat-label>
-        <mat-select>
+        <mat-select formControlName="score">
           <mat-option>Not read yet</mat-option>
           <mat-option *ngFor="let score of scoreOption" [value]="score.key">
             {{score.value}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline" styleClass="mx-3 my-3">
+        <mat-label>Tropes</mat-label>
+        <mat-select multiple formControlName="tropes">
+          <mat-option *ngFor="let tropes of allTropes" [value]="tropes.name">
+            {{tropes.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="outline" styleClass="mx-3 my-3">
+        <mat-label>Genres</mat-label>
+        <mat-select multiple formControlName="genres">
+          <mat-option *ngFor="let genres of allGenres" [value]="genres.name">
+            {{genres.name}}
           </mat-option>
         </mat-select>
       </mat-form-field>

@@ -2,7 +2,6 @@ import { Genre } from "./Genre"
 import { Trope } from "./Trope"
 
 export interface Book {
-  id: string
   aaName: string
   author: string
   series: string
@@ -10,8 +9,8 @@ export interface Book {
   status: Status
   score: Score
   comment: string
-  tropes: Trope[]
-  genres: Genre[]
+  tropes: Trope[] | undefined
+  genres: Genre[] | undefined
 }
 
 export enum Status {

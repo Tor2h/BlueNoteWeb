@@ -28,7 +28,9 @@ export class TableComponent implements OnInit{
   createBook() {
     const dialogRef = this.dialog.open(CreateBookComponent)
       .afterClosed().subscribe(d => {
-        this.getBooks()
+        if (d) {
+          this.getBooks()
+        }
       })
   }
 }

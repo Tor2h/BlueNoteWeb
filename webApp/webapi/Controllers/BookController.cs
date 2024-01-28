@@ -4,7 +4,7 @@ using webapi.Models;
 
 namespace webapi.Controllers
 {
-    [Controller]
+    [ApiController]
     public class BookController : ControllerBase
     {
         private readonly IConfiguration _configuration;
@@ -21,6 +21,14 @@ namespace webapi.Controllers
         { 
             var books = await _bookManager.GetBooks();
             return Ok(books);
+        }
+
+        [HttpPost]
+        [Route("/books")]
+        public async Task<ActionResult<BookDTO>> CreateBook(BookDTO book)
+        {
+            var result = await _bookManager.CreateBook(book);
+            return Ok(result);
         }
     }
 }
