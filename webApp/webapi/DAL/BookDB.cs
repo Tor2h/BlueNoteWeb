@@ -25,10 +25,19 @@ namespace webapi.DAL
             {
                 books = await db.Books
                     .Include(b => b.BookGenres)
-                    .ThenInclude(bg => bg.Genre)
                     .Include(b => b.BookTropes)
-                    .ThenInclude(b => b.Trope)
                     .ToListAsync();
+                foreach (var book in books)
+                {
+                    foreach (var bg in book.BookGenres)
+                    {
+                        bg.Genre = await db.Genres.FirstOrDefaultAsync(g => g.ID.Equals(bg.GenreID));
+                    }
+                    foreach (var bt in book.BookTropes)
+                    {
+                        bt.Trope = await db.Tropes.FirstOrDefaultAsync(t => t.ID.Equals(bt.TropeID));
+                    }
+                }
             }
             return books;
         }
@@ -38,21 +47,15 @@ namespace webapi.DAL
             using (var db = new DatabaseContext(_configuration))
             {
                 await db.Books.AddAsync(book);
-                
+                foreach (var bg in book.BookGenres)
+                {
+                    await db.BookGenres.AddAsync(bg);
+                }
+                foreach (var bt in book.BookTropes)
+                {
+                    await db.BookTropes.AddAsync(bt);
+                }
                 result = await db.SaveChangesAsync();
-
-            }
-            using (var db = new DatabaseContext(_configuration))
-            {
-                foreach (BookGenre bookGenre in book.BookGenres)
-                {
-                    db.BookGenres.Add(bookGenre);
-                }
-                foreach (BookTrope bookTrope in book.BookTropes)
-                {
-                    db.BookTropes.Add(bookTrope);
-                }
-                _ = await db.SaveChangesAsync();
             }
             if (result > 0)
             {

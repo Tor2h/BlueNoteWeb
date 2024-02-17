@@ -45,6 +45,7 @@ namespace webapi.DAL
             modelBuilder.Entity<BookGenre>().Property(bg => bg.BookID);
             modelBuilder.Entity<BookGenre>().Property(bg => bg.GenreID);
             modelBuilder.Entity<BookGenre>().Ignore(bg => bg.Book);
+            modelBuilder.Entity<BookGenre>().Ignore(bg => bg.Genre);
 
 
             modelBuilder.Entity<BookTrope>().ToTable("BookTropes");
@@ -53,6 +54,7 @@ namespace webapi.DAL
             modelBuilder.Entity<BookTrope>().Property(bt => bt.BookID);
             modelBuilder.Entity<BookTrope>().Property(bt => bt.TropeID);
             modelBuilder.Entity<BookTrope>().Ignore(bt => bt.Book);
+            modelBuilder.Entity<BookTrope>().Ignore(bt => bt.Trope);
 
             modelBuilder.Entity<Genre>().ToTable("Genre");
             modelBuilder.Entity<Genre>().HasKey(g => g.ID);
