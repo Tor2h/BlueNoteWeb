@@ -9,8 +9,8 @@ export interface Book {
   status: Status
   score: Score
   comment: string
-  tropes: Trope[] | undefined
-  genres: Genre[] | undefined
+  tropes: Trope[] | undefined | null
+  genres: Genre[] | undefined | null
 }
 
 export enum Status {

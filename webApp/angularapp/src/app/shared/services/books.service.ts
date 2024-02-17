@@ -15,9 +15,9 @@ export class BooksService {
     return this.http.get<Book[]>("/books")
   }
 
-  public createBook(book: Book): Observable<Book> {
+  public createBook(book: Book): Observable<boolean> {
     console.log(book)
-    return this.http.post<Book>("/books", book, {}).pipe()
+    return this.http.post<boolean>("/books", book, {})
   }
 
 }

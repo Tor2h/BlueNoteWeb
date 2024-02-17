@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, UntypedFormControl, Validators } from '@angular/forms';
-import { Status, StatusDisplay, Score, ScoreDisplay, Book } from '../shared/models/Book';
+import { Book, Score, ScoreDisplay, Status, StatusDisplay } from '../shared/models/Book';
 import { Genre } from '../shared/models/Genre';
 import { Trope } from '../shared/models/Trope';
 import { BooksService } from '../shared/services/books.service';
@@ -33,8 +33,8 @@ export class CreateBookComponent implements OnInit {
     score: new UntypedFormControl(null),
     comment: new UntypedFormControl(null),
     //tropes: new UntypedFormControl(null),
-    tropes: new UntypedFormControl(null),
-    genres: new UntypedFormControl(null)
+    tropes: new FormControl<Trope[]>([]),
+    genres: new FormControl<Genre[]>([])
   })
 
   statusOption: StatusDisplay[] = [
@@ -68,6 +68,8 @@ export class CreateBookComponent implements OnInit {
     console.log("here::")
     console.log(book)
     book.aaName = this.bookForm.value.aaName
-    this.bookService.createBook(book).subscribe()
+    this.bookService.createBook(book).subscribe(result => {
+      console.log(result)
+    })
   }
 }

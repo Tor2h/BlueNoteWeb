@@ -8,9 +8,9 @@ namespace webapi.Models
         public string? AaName { get; set; }
         public string? Author { get; set; }
         public string? Series { get; set; }
-        public bool OwnedOrWish { get; set; }
-        public Status Status { get; set; }
-        public Score Score { get; set; }
+        public bool? OwnedOrWish { get; set; }
+        public Status? Status { get; set; }
+        public Score? Score { get; set; }
         public string? Comment { get; set; }
         [JsonIgnore]
         public virtual List<BookTrope> BookTropes { get; set; } = new();

@@ -1,27 +1,25 @@
-
 <h2 mat-dialog-title>Create a new book</h2>
 
 <mat-dialog-content class="mat-typography">
-
   <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
     <div class="row mt-1">
       <mat-form-field appearance="outline" styleClass="mx-3 my-3">
         <mat-label>aa name</mat-label>
-        <input matInput type="text" formControlName="aaName">
+        <input matInput type="text" formControlName="aaName" />
       </mat-form-field>
     </div>
 
     <div class="row">
       <mat-form-field appearance="outline" styleClass="mx-3 my-3">
         <mat-label>Author</mat-label>
-        <input matInput type="text" formControlName="author">
+        <input matInput type="text" formControlName="author" />
       </mat-form-field>
     </div>
 
     <div class="row">
       <mat-form-field appearance="outline" styleClass="mx-3 my-3">
         <mat-label>Series</mat-label>
-        <input matInput type="text" formControlName="series">
+        <input matInput type="text" formControlName="series" />
       </mat-form-field>
     </div>
 
@@ -33,11 +31,11 @@
     </div>
 
     <div class="row">
-      <mat-form-field  appearance="outline" styleClass="mx-3 my-3">
+      <mat-form-field appearance="outline" styleClass="mx-3 my-3">
         <mat-label>Status</mat-label>
         <mat-select formControlName="status">
           <mat-option *ngFor="let status of statusOption" [value]="status.key">
-            {{status.value}}
+            {{ status.value }}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -49,7 +47,7 @@
         <mat-select formControlName="score">
           <mat-option>Not read yet</mat-option>
           <mat-option *ngFor="let score of scoreOption" [value]="score.key">
-            {{score.value}}
+            {{ score.value }}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -59,8 +57,8 @@
       <mat-form-field appearance="outline" styleClass="mx-3 my-3">
         <mat-label>Tropes</mat-label>
         <mat-select multiple formControlName="tropes">
-          <mat-option *ngFor="let tropes of allTropes" [value]="tropes.name">
-            {{tropes.name}}
+          <mat-option *ngFor="let tropes of allTropes" [value]="tropes">
+            {{ tropes.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -70,8 +68,8 @@
       <mat-form-field appearance="outline" styleClass="mx-3 my-3">
         <mat-label>Genres</mat-label>
         <mat-select multiple formControlName="genres">
-          <mat-option *ngFor="let genres of allGenres" [value]="genres.name">
-            {{genres.name}}
+          <mat-option *ngFor="let genres of allGenres" [value]="genres">
+            {{ genres.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -86,10 +84,15 @@
 
     <mat-dialog-actions align="end">
       <button mat-button mat-dialog-close>Cancel</button>
-      <button mat-button type="submit" [disabled]="!bookForm.valid" [mat-dialog-close]="true" cdkFocusInitial>Create</button>
+      <button
+        mat-button
+        type="submit"
+        [disabled]="!bookForm.valid"
+        [mat-dialog-close]="true"
+        cdkFocusInitial
+      >
+        Create
+      </button>
     </mat-dialog-actions>
-
   </form>
-
 </mat-dialog-content>
-

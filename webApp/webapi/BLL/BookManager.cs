@@ -33,14 +33,16 @@ namespace webapi.BLL
                 {
                     if (bt.Trope != null) 
                     { 
-                        bookDTO.Tropes.Add(bt.Trope);
+                        TropeDTO trope = new TropeDTO { ID = bt.TropeID.ToString(), Name = bt.Trope.Name};
+                        bookDTO.Tropes.Add(trope);
                     }
                 }
                 foreach (BookGenre bg in book.BookGenres)
                 {
                     if (bg.Genre != null)
                     {
-                        bookDTO.Genres.Add(bg.Genre);
+                        GenreDTO genre = new GenreDTO { ID = bg.GenreID.ToString(), Name = bg.Genre.Name };
+                        bookDTO.Genres.Add(genre);
                     }
                 }
                 bookDTOs.Add(bookDTO);
@@ -48,7 +50,7 @@ namespace webapi.BLL
             return bookDTOs;
         }
 
-        public async Task<BookDTO> CreateBook(BookDTO bookDTO)
+        public async Task<bool> CreateBook(BookDTO bookDTO)
         {
             Book book = new Book {
                 ID = Guid.NewGuid(),
@@ -70,10 +72,11 @@ namespace webapi.BLL
             {
                 book.Score = (Score)bookDTO.Score;
             }
-            if (bookDTO.Genres != null)
+            if (bookDTO.Genres.Count > 0)
             {
-                foreach (Genre genre in bookDTO.Genres)
+                foreach (GenreDTO genreDTO in bookDTO.Genres)
                 {
+                    Genre genre = new Genre { ID = Guid.Parse(genreDTO.ID), Name = genreDTO.Name };
                     BookGenre bg = new BookGenre
                     {
                         Book = book,
@@ -85,10 +88,11 @@ namespace webapi.BLL
                     book.BookGenres.Add(bg);
                 }
             }
-            if (bookDTO.Tropes != null)
+            if (bookDTO.Tropes.Count > 0)
             {
-                foreach (Trope trope in bookDTO.Tropes)
+                foreach (TropeDTO tropeDTO in bookDTO.Tropes)
                 {
+                    Trope trope = new Trope { ID = Guid.Parse(tropeDTO.ID), Name = tropeDTO.Name };
                     BookTrope bt = new BookTrope
                     {
                         Book = book,
@@ -101,12 +105,7 @@ namespace webapi.BLL
                 }
             }
             
-            bool result = await _bookDB.CreateBook(book);
-            if (result)
-            {
-                return bookDTO;
-            }
-            return null;
+            return await _bookDB.CreateBook(book);
         }
     }
 }

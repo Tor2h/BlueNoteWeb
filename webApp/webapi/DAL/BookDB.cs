@@ -37,7 +37,13 @@ namespace webapi.DAL
             int result = 0;
             using (var db = new DatabaseContext(_configuration))
             {
-                db.Books.Add(book);
+                await db.Books.AddAsync(book);
+                
+                result = await db.SaveChangesAsync();
+
+            }
+            using (var db = new DatabaseContext(_configuration))
+            {
                 foreach (BookGenre bookGenre in book.BookGenres)
                 {
                     db.BookGenres.Add(bookGenre);
@@ -46,7 +52,7 @@ namespace webapi.DAL
                 {
                     db.BookTropes.Add(bookTrope);
                 }
-                result = await db.SaveChangesAsync();
+                _ = await db.SaveChangesAsync();
             }
             if (result > 0)
             {

@@ -17,15 +17,15 @@ namespace webapi.Controllers
 
         [HttpGet]
         [Route("/books")]
-        public async Task<ActionResult<List<BookDTO>>> GetBooks() 
-        { 
+        public async Task<ActionResult<List<BookDTO>>> GetBooks()
+        {
             var books = await _bookManager.GetBooks();
             return Ok(books);
         }
 
         [HttpPost]
         [Route("/books")]
-        public async Task<ActionResult<BookDTO>> CreateBook(BookDTO book)
+        public async Task<ActionResult<bool>> CreateBook(BookDTO book)
         {
             var result = await _bookManager.CreateBook(book);
             return Ok(result);
