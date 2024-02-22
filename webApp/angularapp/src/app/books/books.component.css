@@ -1,0 +1,66 @@
+.background-class {
+  background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fgoodcities.net%2Fwp-content%2Fuploads%2F2017%2F11%2Fstack-of-books.jpg&f=1&nofb=1&ipt=79e323d00e0517661494c1f7f8a7289603a6bdae41e6cd9802db770d7d52de7e&ipo=images);
+  padding: 200px 100px;
+  margin: 100px;
+
+  background-size: cover;
+  background-position: center;
+}
+
+.table-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  column-gap: 5px;
+  row-gap: 5px;
+  grid-auto-flow: row;
+}
+
+.header {
+  display: contents;
+  border-bottom: 1px solid black;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.divider {
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
+
+.book {
+  display: contents;
+}
+
+.cell {
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: #e7e7e7;
+}
+
+.genre-cell {
+  display: grid;
+  grid-template-columns: auto auto;
+  row-gap: 5px;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: #e7e7e7;
+}
+
+.genre-chip {
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
+
+.trope-cell {
+  display: grid;
+  grid-template-columns: auto;
+  row-gap: 5px;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: #e7e7e7;
+}
+
+.trope-chip {
+  grid-column-start: 1;
+  grid-column-end: -1;
+}

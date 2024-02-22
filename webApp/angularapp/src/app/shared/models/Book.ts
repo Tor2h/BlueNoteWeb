@@ -1,23 +1,23 @@
-import { Genre } from "./Genre"
-import { Trope } from "./Trope"
+import { Genre } from './Genre';
+import { Trope } from './Trope';
 
 export interface Book {
-  aaName: string
-  author: string
-  series: string
-  ownedOrWish: boolean
-  status: Status
-  score: Score
-  comment: string
-  tropes: Trope[] | undefined | null
-  genres: Genre[] | undefined | null
+  aaName: string;
+  author: string;
+  series: string;
+  ownedOrWish: boolean;
+  status: Status;
+  score: Score;
+  comment: string;
+  tropes: Trope[] | undefined | null;
+  genres: Genre[] | undefined | null;
 }
 
 export enum Status {
   NotStarted,
   CurrentlyReading,
   Read,
-  WantToReadSoon
+  WantToReadSoon,
 }
 
 export enum Score {
@@ -25,15 +25,15 @@ export enum Score {
   Two,
   Three,
   Four,
-  Five
+  Five,
 }
 
 export interface StatusDisplay {
-  key: Status
-  value: string
+  key: Status;
+  value: string;
 }
 
 export interface ScoreDisplay {
-  key: Score
-  value: string
+  key: Score;
+  value: string;
 }
