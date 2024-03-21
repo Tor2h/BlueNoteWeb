@@ -3,6 +3,7 @@
 html,
 body {
   height: 100%;
+  width: 100%;
 }
 body {
   margin: 0;
@@ -10,20 +11,27 @@ body {
 }
 
 body {
-  display: flex;
-  /* align-items: center; */
-  justify-content: center;
-  margin: 0 auto;
-  height: 100vh;
-}
-.showcase {
-  position: relative;
+  background-color: rgb(254, 210, 219);
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  color: rgb(28, 57, 145);
 }
 
-.bg-image {
-  opacity: 0.7;
+.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled)
+  .mdc-evolution-chip__text-label {
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  color: rgb(254, 210, 219);
 }
 
-.content {
-  position: absolute;
+.mat-mdc-standard-chip {
+  color: rgb(254, 210, 219);
+  --mdc-chip-elevated-container-color: #eb9a9a;
 }
+
+/* .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled)
+  .mdc-evolution-chip__text-label {
+  color: var(--mdc-chip-label-text-color, currentColor);
+} */

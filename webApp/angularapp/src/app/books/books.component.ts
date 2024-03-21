@@ -22,6 +22,10 @@ export class BooksComponent implements OnInit {
     });
   }
 
+  updateBook() {
+    console.log('UPDATE');
+  }
+
   getOwnedString(ownedOrWish: boolean): string {
     switch (ownedOrWish) {
       case true:

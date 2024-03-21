@@ -11,19 +11,24 @@
     <div>Score</div>
     <div>Comment</div>
   </div>
-  <mat-divider class="divider"></mat-divider>
+  <div class="divider"></div>
   <div class="book" *ngFor="let book of allBooks">
-    <div class="cell">{{ book.author }}</div>
+    <div class="cell">
+      <mat-form-field>
+        <input matInput [value]="book.author" />
+      </mat-form-field>
+    </div>
+
     <div class="cell">{{ book.aaName }}</div>
     <div class="cell">{{ book.series }}</div>
-    <div class="genre-cell">
+    <div class="cell genre-cell">
       <ng-container *ngFor="let genre of book.genres">
         <div class="genre-chip">
           <mat-chip>{{ genre.name }}</mat-chip>
         </div>
       </ng-container>
     </div>
-    <div class="trope-cell">
+    <div class="cell trope-cell">
       <ng-container *ngFor="let trope of book.tropes">
         <div class="trope-chip">
           <mat-chip>{{ trope.name }}</mat-chip>
@@ -31,9 +36,13 @@
       </ng-container>
     </div>
     <div class="cell">{{ getOwnedString(book.ownedOrWish) }}</div>
-    <div class="cell">{{ getStatusString(book.status) }}</div>
+    <div class="cell">
+      <mat-chip>
+        {{ getStatusString(book.status) }}
+      </mat-chip>
+    </div>
     <div class="cell">{{ getScoreString(book.score) }}</div>
     <div class="cell">{{ book.comment }}</div>
-    <mat-divider class="divider"></mat-divider>
+    <!-- <mat-divider class="divider"></mat-divider> -->
   </div>
 </div>
