@@ -15,7 +15,7 @@
   <div class="book" *ngFor="let book of allBooks">
     <div class="cell">
       <mat-form-field>
-        <input matInput [value]="book.author" />
+        <input matInput [(ngModel)]="book.author" />
       </mat-form-field>
     </div>
 
