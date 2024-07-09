@@ -21,14 +21,12 @@ import { BooksComponent } from './books/books.component';
 import { CreateBookComponent } from './create-book/create-book.component';
 import { CreateGenreDialogComponent } from './genres/create-genre-dialog/create-genre-dialog.component';
 import { GenresComponent } from './genres/genres.component';
-import { TableComponent } from './table/table.component';
 import { CreateTropeDialogComponent } from './tropes/create-trope-dialog/create-trope-dialog.component';
 import { TropesComponent } from './tropes/tropes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TableComponent,
     TropesComponent,
     GenresComponent,
     CreateTropeDialogComponent,

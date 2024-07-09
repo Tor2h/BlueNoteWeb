@@ -1,48 +1,21 @@
-<p>books works!</p>
-<div class="table-grid">
-  <div class="header">
-    <div>Author</div>
-    <div>Title</div>
-    <div>Series</div>
-    <div>Genres</div>
-    <div>Tropes</div>
-    <div>Owned</div>
-    <div>Status</div>
-    <div>Score</div>
-    <div>Comment</div>
-  </div>
+<div class="books-list">
+  <div class="header">aaName</div>
+  <div class="header">Author</div>
+  <div class="header">Series</div>
+  <div class="header">Tropes</div>
+  <div class="header">Owned</div>
+  <div class="header">Genres</div>
   <div class="divider"></div>
-  <div class="book" *ngFor="let book of allBooks">
-    <div class="cell">
-      <mat-form-field>
-        <input matInput [(ngModel)]="book.author" />
-      </mat-form-field>
+  <div class="books" *ngFor="let book of books">
+    <div>{{ book.aaName }}</div>
+    <div>{{ book.author }}</div>
+    <div>{{ book.series }}</div>
+    <div>
+      <mat-chip *ngFor="let trope of book.tropes">{{ trope.name }}</mat-chip>
     </div>
-
-    <div class="cell">{{ book.aaName }}</div>
-    <div class="cell">{{ book.series }}</div>
-    <div class="cell genre-cell">
-      <ng-container *ngFor="let genre of book.genres">
-        <div class="genre-chip">
-          <mat-chip>{{ genre.name }}</mat-chip>
-        </div>
-      </ng-container>
+    <div>{{ book.ownedOrWish }}</div>
+    <div>
+      <mat-chip *ngFor="let genre of book.genres">{{ genre.name }}</mat-chip>
     </div>
-    <div class="cell trope-cell">
-      <ng-container *ngFor="let trope of book.tropes">
-        <div class="trope-chip">
-          <mat-chip>{{ trope.name }}</mat-chip>
-        </div>
-      </ng-container>
-    </div>
-    <div class="cell">{{ getOwnedString(book.ownedOrWish) }}</div>
-    <div class="cell">
-      <mat-chip>
-        {{ getStatusString(book.status) }}
-      </mat-chip>
-    </div>
-    <div class="cell">{{ getScoreString(book.score) }}</div>
-    <div class="cell">{{ book.comment }}</div>
-    <!-- <mat-divider class="divider"></mat-divider> -->
   </div>
 </div>

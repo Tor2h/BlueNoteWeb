@@ -1,70 +1,20 @@
-/* .background-class {
-  background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fgoodcities.net%2Fwp-content%2Fuploads%2F2017%2F11%2Fstack-of-books.jpg&f=1&nofb=1&ipt=79e323d00e0517661494c1f7f8a7289603a6bdae41e6cd9802db770d7d52de7e&ipo=images);
-  padding: 200px 100px;
-  margin: 100px;
-
-  background-size: cover;
-  background-position: center;
-} */
-
-.table-grid {
+.books-list {
+  margin-top: 20px;
   display: grid;
-  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; */
-  grid-template-columns: auto auto auto auto auto auto auto auto auto;
-  grid-auto-flow: row;
-  padding: 10px;
-  margin: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 20px;
 }
 
 .header {
-  display: contents;
-  font-size: 16px;
-  font-weight: 800;
+  font-weight: bolder;
+  font-size: large;
 }
-
 .divider {
-  grid-column-start: 1;
-  grid-column-end: -1;
-  border-bottom: 1px solid rgb(41, 38, 60);
+  border-bottom: solid rgb(15, 15, 157) 1px;
+  grid-column: 1/-1;
 }
 
-.book {
+.books {
   display: contents;
-  border-top: 1px solid rgb(41, 38, 60);
-  border-bottom: 1px solid rgb(41, 38, 60);
-}
-
-.cell:nth-of-type(1) {
-  border-left: 1px solid rgb(41, 38, 60);
-}
-
-.cell {
-  border-right: 1px solid rgb(41, 38, 60);
-  border-bottom: 1px solid rgb(41, 38, 60);
-  /* border-top: 1px solid rgb(25, 23, 36); */
-  padding: 10px;
-}
-
-.genre-cell {
-  display: flex;
-  /* grid-template-columns: auto auto; */
-  column-gap: 5px;
-  row-gap: 5px;
-}
-
-.genre-chip {
-  grid-column-start: 1;
-  grid-column-end: -1;
-}
-
-.trope-cell {
-  display: flex;
-  /* grid-template-columns: auto auto; */
-  column-gap: 5px;
-  row-gap: 5px;
-}
-
-.trope-chip {
-  grid-column-start: 1;
-  grid-column-end: -1;
 }
