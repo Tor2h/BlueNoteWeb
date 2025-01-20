@@ -8,32 +8,39 @@ namespace webapi.BLL
     {
         private readonly IConfiguration _configuration;
         private readonly IBookDB _bookDB;
+
         public BookManager(IConfiguration configuration)
         {
             this._configuration = configuration;
             this._bookDB = new BookDB(_configuration);
         }
+
         public async Task<List<BookDTO>> GetBooks()
         {
             List<Book> books = await _bookDB.GetBooks();
 
             List<BookDTO> bookDTOs = new List<BookDTO>();
-            foreach (Book book in books) 
+            foreach (Book book in books)
             {
-                BookDTO bookDTO = new BookDTO{
+                BookDTO bookDTO = new BookDTO
+                {
                     AaName = book.AaName,
                     Author = book.Author,
                     Series = book.Series,
                     OwnedOrWish = book.OwnedOrWish,
                     Status = book.Status,
                     Score = book.Score,
-                    Comment = book.Comment
+                    Comment = book.Comment,
                 };
                 foreach (BookTrope bt in book.BookTropes)
                 {
-                    if (bt.Trope != null) 
-                    { 
-                        TropeDTO trope = new TropeDTO { ID = bt.TropeID.ToString(), Name = bt.Trope.Name};
+                    if (bt.Trope != null)
+                    {
+                        TropeDTO trope = new TropeDTO
+                        {
+                            ID = bt.TropeID.ToString(),
+                            Name = bt.Trope.Name,
+                        };
                         bookDTO.Tropes.Add(trope);
                     }
                 }
@@ -41,7 +48,11 @@ namespace webapi.BLL
                 {
                     if (bg.Genre != null)
                     {
-                        GenreDTO genre = new GenreDTO { ID = bg.GenreID.ToString(), Name = bg.Genre.Name };
+                        GenreDTO genre = new GenreDTO
+                        {
+                            ID = bg.GenreID.ToString(),
+                            Name = bg.Genre.Name,
+                        };
                         bookDTO.Genres.Add(genre);
                     }
                 }
@@ -52,12 +63,13 @@ namespace webapi.BLL
 
         public async Task<bool> CreateBook(BookDTO bookDTO)
         {
-            Book book = new Book {
+            Book book = new Book
+            {
                 ID = Guid.NewGuid(),
                 AaName = bookDTO.AaName,
                 Author = bookDTO.Author,
                 Series = bookDTO.Series,
-                Comment = bookDTO.Comment
+                Comment = bookDTO.Comment,
             };
 
             if (bookDTO.OwnedOrWish != null)
@@ -104,7 +116,7 @@ namespace webapi.BLL
                     book.BookTropes.Add(bt);
                 }
             }
-            
+
             return await _bookDB.CreateBook(book);
         }
     }
