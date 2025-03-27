@@ -5,9 +5,10 @@ import { GenresService } from '../shared/services/genres.service';
 import { CreateGenreDialogComponent } from './create-genre-dialog/create-genre-dialog.component';
 
 @Component({
-  selector: 'app-genres',
-  templateUrl: './genres.component.html',
-  styleUrls: ['./genres.component.css']
+    selector: 'app-genres',
+    templateUrl: './genres.component.html',
+    styleUrls: ['./genres.component.css'],
+    standalone: false
 })
 export class GenresComponent implements OnInit{
   allGenres: Genre[] = []

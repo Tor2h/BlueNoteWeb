@@ -3,9 +3,10 @@ import { FormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { GenresService } from '../../shared/services/genres.service';
 
 @Component({
-  selector: 'app-create-genre-dialog',
-  templateUrl: './create-genre-dialog.component.html',
-  styleUrls: ['./create-genre-dialog.component.css'],
+    selector: 'app-create-genre-dialog',
+    templateUrl: './create-genre-dialog.component.html',
+    styleUrls: ['./create-genre-dialog.component.css'],
+    standalone: false
 })
 export class CreateGenreDialogComponent {
   constructor(private genreService: GenresService) {}
