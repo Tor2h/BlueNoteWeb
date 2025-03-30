@@ -3,10 +3,10 @@ import { FormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { TropesService } from '../../shared/services/tropes.service';
 
 @Component({
-    selector: 'app-create-trope-dialog',
-    templateUrl: './create-trope-dialog.component.html',
-    styleUrls: ['./create-trope-dialog.component.css'],
-    standalone: false
+  selector: 'app-create-trope-dialog',
+  templateUrl: './create-trope-dialog.component.html',
+  styleUrls: ['./create-trope-dialog.component.css'],
+  standalone: false,
 })
 export class CreateTropeDialogComponent {
   constructor(private tropeService: TropesService) {}

@@ -5,15 +5,18 @@ import { TropesService } from '../shared/services/tropes.service';
 import { CreateTropeDialogComponent } from './create-trope-dialog/create-trope-dialog.component';
 
 @Component({
-    selector: 'app-tropes',
-    templateUrl: './tropes.component.html',
-    styleUrls: ['./tropes.component.css'],
-    standalone: false
+  selector: 'app-tropes',
+  templateUrl: './tropes.component.html',
+  styleUrls: ['./tropes.component.css'],
+  standalone: false,
 })
 export class TropesComponent implements OnInit {
   allTropes: Trope[] = [];
   displayedColumns: string[] = ['name', 'delete'];
-  constructor(private tropesService: TropesService, public dialog: MatDialog) {}
+  constructor(
+    private tropesService: TropesService,
+    public dialog: MatDialog,
+  ) {}
 
   ngOnInit() {
     this.getTropes();

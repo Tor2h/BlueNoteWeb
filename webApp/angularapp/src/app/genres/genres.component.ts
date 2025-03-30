@@ -5,37 +5,41 @@ import { GenresService } from '../shared/services/genres.service';
 import { CreateGenreDialogComponent } from './create-genre-dialog/create-genre-dialog.component';
 
 @Component({
-    selector: 'app-genres',
-    templateUrl: './genres.component.html',
-    styleUrls: ['./genres.component.css'],
-    standalone: false
+  selector: 'app-genres',
+  templateUrl: './genres.component.html',
+  styleUrls: ['./genres.component.css'],
+  standalone: false,
 })
-export class GenresComponent implements OnInit{
-  allGenres: Genre[] = []
-  displayedColumns: string[] = ['name', 'delete']
-  constructor(private genresService: GenresService, public dialog: MatDialog) {
-
-  }
+export class GenresComponent implements OnInit {
+  allGenres: Genre[] = [];
+  displayedColumns: string[] = ['name', 'delete'];
+  constructor(
+    private genresService: GenresService,
+    public dialog: MatDialog,
+  ) {}
   ngOnInit() {
-    this.getGenres()
+    this.getGenres();
   }
 
   getGenres() {
-    this.genresService.getGenres().subscribe(g => {
-      this.allGenres = g
-    })
+    this.genresService.getGenres().subscribe((g) => {
+      this.allGenres = g;
+    });
   }
 
   createGenre() {
-    const dialogRef = this.dialog.open(CreateGenreDialogComponent, {
-      data: { name: "", id: "" }
-    }).afterClosed().subscribe(d => {
-      this.getGenres()
-    })
+    const dialogRef = this.dialog
+      .open(CreateGenreDialogComponent, {
+        data: { name: '', id: '' },
+      })
+      .afterClosed()
+      .subscribe((d) => {
+        this.getGenres();
+      });
   }
   deleteGenre(id: string) {
-    this.genresService.deleteGenre(id).subscribe(g => {
-      this.getGenres()
-    })
+    this.genresService.deleteGenre(id).subscribe((g) => {
+      this.getGenres();
+    });
   }
 }

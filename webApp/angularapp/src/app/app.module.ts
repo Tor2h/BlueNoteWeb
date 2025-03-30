@@ -1,4 +1,7 @@
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -24,29 +27,35 @@ import { GenresComponent } from './genres/genres.component';
 import { CreateTropeDialogComponent } from './tropes/create-trope-dialog/create-trope-dialog.component';
 import { TropesComponent } from './tropes/tropes.component';
 
-@NgModule({ declarations: [
-        AppComponent,
-        TropesComponent,
-        GenresComponent,
-        CreateTropeDialogComponent,
-        CreateGenreDialogComponent,
-        CreateBookComponent,
-        BooksComponent,
-    ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
-        BrowserAnimationsModule,
-        MatSidenavModule,
-        MatTabsModule,
-        MatTableModule,
-        MatDialogModule,
-        MatButtonModule,
-        MatIconModule,
-        MatInputModule,
-        MatFormFieldModule,
-        FormsModule,
-        MatSelectModule,
-        ReactiveFormsModule,
-        MatCheckboxModule,
-        MatDividerModule,
-        MatChipsModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+@NgModule({
+  declarations: [
+    AppComponent,
+    TropesComponent,
+    GenresComponent,
+    CreateTropeDialogComponent,
+    CreateGenreDialogComponent,
+    CreateBookComponent,
+    BooksComponent,
+  ],
+  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatTabsModule,
+    MatTableModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatCheckboxModule,
+    MatDividerModule,
+    MatChipsModule,
+  ],
+  providers: [provideHttpClient(withInterceptorsFromDi())],
+})
 export class AppModule {}

@@ -1,6 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, UntypedFormControl, Validators } from '@angular/forms';
-import { Book, Score, ScoreDisplay, Status, StatusDisplay } from '../shared/models/Book';
+import {
+  FormControl,
+  FormGroup,
+  UntypedFormControl,
+  Validators,
+} from '@angular/forms';
+import {
+  Book,
+  Score,
+  ScoreDisplay,
+  Status,
+  StatusDisplay,
+} from '../shared/models/Book';
 import { Genre } from '../shared/models/Genre';
 import { Trope } from '../shared/models/Trope';
 import { BooksService } from '../shared/services/books.service';
@@ -8,21 +19,24 @@ import { GenresService } from '../shared/services/genres.service';
 import { TropesService } from '../shared/services/tropes.service';
 
 @Component({
-    selector: 'app-create-book',
-    templateUrl: './create-book.component.html',
-    styleUrls: ['./create-book.component.css'],
-    standalone: false
+  selector: 'app-create-book',
+  templateUrl: './create-book.component.html',
+  styleUrls: ['./create-book.component.css'],
+  standalone: false,
 })
 export class CreateBookComponent implements OnInit {
+  allTropes: Trope[] = [];
+  allGenres: Genre[] = [];
 
-  allTropes: Trope[] = []
-  allGenres: Genre[] = []
-
-  constructor(private bookService: BooksService, private genreService: GenresService, private TropeService: TropesService) { }
+  constructor(
+    private bookService: BooksService,
+    private genreService: GenresService,
+    private TropeService: TropesService,
+  ) {}
 
   ngOnInit() {
-    this.TropeService.getTropes().subscribe(t => this.allTropes= t)
-    this.genreService.getGenres().subscribe(g => this.allGenres = g)
+    this.TropeService.getTropes().subscribe((t) => (this.allTropes = t));
+    this.genreService.getGenres().subscribe((g) => (this.allGenres = g));
   }
 
   bookForm = new FormGroup({
@@ -35,23 +49,23 @@ export class CreateBookComponent implements OnInit {
     comment: new UntypedFormControl(null),
     //tropes: new UntypedFormControl(null),
     tropes: new FormControl<Trope[]>([]),
-    genres: new FormControl<Genre[]>([])
-  })
+    genres: new FormControl<Genre[]>([]),
+  });
 
   statusOption: StatusDisplay[] = [
-    {key: Status.NotStarted, value: 'Not started'},
-    {key: Status.CurrentlyReading, value: 'Currently reading'},
-    {key: Status.Read, value: 'Read'},
-    {key: Status.WantToReadSoon, value: 'Want to read soon'}
-  ]
+    { key: Status.NotStarted, value: 'Not started' },
+    { key: Status.CurrentlyReading, value: 'Currently reading' },
+    { key: Status.Read, value: 'Read' },
+    { key: Status.WantToReadSoon, value: 'Want to read soon' },
+  ];
 
   scoreOption: ScoreDisplay[] = [
     { key: Score.One, value: '⭐' },
     { key: Score.Two, value: '⭐⭐' },
     { key: Score.Three, value: '⭐⭐⭐' },
     { key: Score.Four, value: '⭐⭐⭐⭐' },
-    { key: Score.Five, value: '⭐⭐⭐⭐⭐' }
-  ]
+    { key: Score.Five, value: '⭐⭐⭐⭐⭐' },
+  ];
 
   onSubmit() {
     let book: Book = {
@@ -63,14 +77,13 @@ export class CreateBookComponent implements OnInit {
       score: this.bookForm.value.score,
       comment: this.bookForm.value.comment,
       tropes: this.bookForm.value.tropes,
-      genres: this.bookForm.value.genres
-
-    }
-    console.log("here::")
-    console.log(book)
-    book.aaName = this.bookForm.value.aaName
-    this.bookService.createBook(book).subscribe(result => {
-      console.log(result)
-    })
+      genres: this.bookForm.value.genres,
+    };
+    console.log('here::');
+    console.log(book);
+    book.aaName = this.bookForm.value.aaName;
+    this.bookService.createBook(book).subscribe((result) => {
+      console.log(result);
+    });
   }
 }
