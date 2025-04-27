@@ -6,6 +6,9 @@
   <div class="header">Tropes</div>
   <div class="header">Owned</div>
   <div class="header">Genres</div>
+  <div class="header">Status</div>
+  <div class="header">Score</div>
+  <div class="header">Comment</div>
   <div class="divider"></div>
   <div class="books" *ngFor="let book of books">
     <div>{{ book.aaName }}</div>
@@ -18,5 +21,8 @@
     <div>
       <mat-chip *ngFor="let genre of book.genres">{{ genre.name }}</mat-chip>
     </div>
+    <div>{{ book.status }}</div>
+    <div>{{ book.score }}</div>
+    <div>{{ book.comment }}</div>
   </div>
 </div>

@@ -13,24 +13,48 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +7 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/books/books.component.ts
+badd +16 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/books/books.component.ts
 badd +4 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/genres/genres.component.html
 badd +14 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/genres/genres.component.ts
 badd +24 ~/programming/BlueNoteWeb/webApp/angularapp/package.json
 badd +27 ~/programming/BlueNoteWeb/webApp/angularapp/angular.json
-badd +57 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/app.module.ts
+badd +52 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/app.module.ts
 badd +5627 ~/programming/BlueNoteWeb/webApp/angularapp/package-lock.json
-badd +5 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/app.component.html
+badd +6 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/app.component.html
 badd +10 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/app.component.ts
-badd +1 ~/programming/BlueNoteWeb/webApp/angularapp/src/index.html
-badd +1 ~/programming/BlueNoteWeb/webApp/angularapp/src/main.ts
+badd +11 ~/programming/BlueNoteWeb/webApp/angularapp/src/index.html
+badd +6 ~/programming/BlueNoteWeb/webApp/angularapp/src/main.ts
 badd +18 ~/programming/BlueNoteWeb/webApp/angularapp/src/styles.css
 badd +1 ~/programming/BlueNoteWeb/webApp/angularapp/src/proxy.conf.js
+badd +22 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/books/books.component.html
+badd +98 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/create-book/create-book.component.html
+badd +1 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/create-book/create-book.component.css
+badd +11 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/genres/create-genre-dialog/create-genre-dialog.component.html
+badd +18 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/tropes/tropes.component.html
+badd +1 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/app.component.css
+badd +8 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/books/books.component.css
+badd +1 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/create-book/create-book.component.ts
+badd +1 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/genres/create-genre-dialog/create-genre-dialog.component.css
+badd +1 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/genres/create-genre-dialog/create-genre-dialog.component.ts
+badd +1 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/genres/genres.component.css
+badd +1 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/shared/models/Book.ts
+badd +1 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/shared/models/Genre.ts
+badd +1 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/shared/models/Trope.ts
+badd +1 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/shared/services/books.service.ts
+badd +1 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/shared/services/genres.service.ts
+badd +1 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/shared/services/tropes.service.ts
+badd +1 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/tropes/create-trope-dialog/create-trope-dialog.component.css
+badd +1 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/tropes/create-trope-dialog/create-trope-dialog.component.html
+badd +1 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/tropes/create-trope-dialog/create-trope-dialog.component.ts
+badd +1 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/tropes/tropes.component.css
+badd +1 ~/programming/BlueNoteWeb/webApp/angularapp/src/app/tropes/tropes.component.ts
+badd +4 C:/Notes/BlueNoteWeb/note.md
+badd +1 health://
 argglobal
 %argdel
-edit ~/programming/BlueNoteWeb/webApp/angularapp/src/index.html
+edit ~/programming/BlueNoteWeb/webApp/angularapp/src/app/books/books.component.ts
 argglobal
-balt ~/programming/BlueNoteWeb/webApp/angularapp/src/main.ts
+balt ~/programming/BlueNoteWeb/webApp/angularapp/src/app/books/books.component.html
 setlocal foldmethod=manual
 setlocal foldexpr=0
 setlocal foldmarker={{{,}}}
@@ -41,12 +65,12 @@ setlocal foldnestmax=20
 setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 15 - ((14 * winheight(0) + 23) / 47)
+let s:l = 16 - ((15 * winheight(0) + 24) / 49)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 15
-normal! 014|
+keepjumps 16
+normal! 015|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
